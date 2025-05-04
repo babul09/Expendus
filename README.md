@@ -1,20 +1,22 @@
-# Expen - Expense Tracker App  
+# Expendus - Expense Tracker App (made for GDG-SRM recruitment) 
 
 ## 📌 Overview  
-**Expen** is a lightweight and elegant expense tracker app built with **Flutter**. It helps users manage their expenses efficiently with a clean UI and smooth performance.  
+**Expendus** is a lightweight and elegant expense tracker app built with **Flutter**. It helps users manage their expenses efficiently with a clean UI and smooth performance.  
 
 ## ✨ Features  
-- 📊 **Visual Insights** - View expense charts for better analysis.  
-- 🔄 **Set Spending Targets** - Manage your budget effectively.  
-- ⏳ **Automatic Date & Time** - No manual input required.  
-- 💱 **Multi-Currency Support** - Choose from multiple currencies.  
-- 🌙 **Auto Theme Switching** - Supports both light & dark mode.  
+-  **Visual Insights** - View expense charts for better analysis.  
+-  **Set Spending Targets** - Manage your budget effectively.  
+-  **Automatic Date & Time** - No manual input required.  
+-  **Multi-Currency Support** - Choose from multiple currencies.  
+-  **Auto Theme Switching** - Supports both light & dark mode.
+- **Data sync across devices** - save your expenses in the cloud.  
 
 ## 🛠️ Tech Stack  
 - **Flutter** - UI Framework  
 - **Provider** - State Management  
 - **GoRouter** - Navigation  
 - **Hive** - Local Storage  
+- **FIrebase** - Oauth and Account sync
 
 ## 📸 Screenshots  
 | Home Screen | Add Expense | Chart Screen |  
