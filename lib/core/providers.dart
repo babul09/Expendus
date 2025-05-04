@@ -1,5 +1,7 @@
+import 'package:expen/firebase/auth_service.dart';
 import 'package:expen/provider/amount_provider.dart';
 import 'package:expen/provider/currency_provider.dart';
+import 'package:expen/provider/expense_provider.dart';
 import 'package:expen/provider/theme_provider.dart';
 import 'package:expen/provider/version_provider.dart';
 import 'package:flutter/material.dart';
@@ -8,8 +10,14 @@ import 'package:provider/provider.dart';
 Widget appProvider(Widget child) {
   return MultiProvider(
     providers: [
-      //For Amount
+      //For Authentication (Firebase)
+      ChangeNotifierProvider(create: (context) => AuthService()),
+
+      //For Amount (Hive)
       ChangeNotifierProvider(create: (context) => AmountProvider()),
+
+      //For Firebase Expenses
+      ChangeNotifierProvider(create: (context) => ExpenseProvider()),
 
       //For Theme
       ChangeNotifierProvider(create: (context) => ThemeProvider()),

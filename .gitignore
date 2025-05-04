@@ -47,3 +47,63 @@ app.*.map.json
 # Ignore Hive database files
 *.hive
 *.lock
+
+# Firebase configurations that may contain sensitive information
+**/google-services.json
+**/GoogleService-Info.plist
+**/firebase_options.dart
+**/firebase_app_id_file.json
+
+# Environment secrets and configuration
+.env
+.env.*
+env.g.dart
+*.env.dart
+
+# Generated files
+*.g.dart
+*.freezed.dart
+*.mocks.dart
+
+# Coverage reports
+/coverage/
+
+# iOS build related
+**/ios/build/
+**/ios/Pods/
+**/ios/.symlinks/
+**/ios/Flutter/Flutter.podspec
+**/ios/Flutter/flutter_export_environment.sh
+**/ios/Runner.xcworkspace/
+
+# Android build related
+**/android/.gradle/
+**/android/gradle/
+**/android/gradlew.bat
+**/android/gradlew
+**/android/key.properties
+**/android/local.properties
+**/android/app/src/main/java/io/flutter/plugins/GeneratedPluginRegistrant.java
+
+# macOS build related
+**/macos/Flutter/ephemeral/
+**/macos/Pods/
+**/macos/.symlinks/
+**/macos/Flutter/GeneratedPluginRegistrant.swift
+
+# Windows build related
+**/windows/Flutter/ephemeral/
+
+# Visual Studio cache directory
+.vs/
+
+# FVM (Flutter Version Management) if used
+.fvm/
+
+# Error logs
+flutter_*.log
+/logs/
+
+# Performance data
+perf.data
+perf.data.old

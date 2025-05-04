@@ -1,0 +1,39 @@
+# Set default behavior to automatically normalize line endings
+* text=auto
+
+# Flutter/Dart specific
+*.dart text
+*.yaml text
+*.json text
+*.md text
+pubspec.lock text
+
+# Android specific
+*.gradle text
+*.xml text
+*.properties text
+gradlew text eol=lf
+*.bat text eol=crlf
+
+# iOS specific
+*.pbxproj merge=binary
+*.storyboard text
+*.swift text
+*.xcconfig text
+*.xib text
+
+# Binary files (no line-ending normalization)
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.ttf binary
+*.otf binary
+*.eot binary
+*.woff binary
+*.woff2 binary
+*.keystore binary
+*.jks binary
+*.p12 binary
+*.pfx binary 

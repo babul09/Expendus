@@ -120,8 +120,26 @@ class AppScaffold extends StatelessWidget {
                         ),
                       ),
                     )
-                  : null,
-                leadingWidth: showBackButton ? 56 : null,
+                  : GestureDetector(
+                      onTap: () {
+                        context.push('/profile');
+                      },
+                      child: Container(
+                        margin: const EdgeInsets.all(8),
+                        decoration: BoxDecoration(
+                          color: isDarkMode 
+                              ? Colors.black26 
+                              : AppColors.white.withOpacity(0.5),
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: Icon(
+                          Icons.person, 
+                          color: isDarkMode ? AppColors.primaryDark : AppColors.blue,
+                          size: 20,
+                        ),
+                      ),
+                    ),
+                leadingWidth: 56,
               )
             : null,
         body: Container(

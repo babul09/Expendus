@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:expen/core/providers.dart';
 import 'package:expen/core/router.dart';
 import 'package:expen/core/theme.dart';
+import 'package:expen/firebase/firebase_service.dart';
 import 'package:expen/hive/backup_and_reset.dart';
 import 'package:expen/hive/hive_database.dart';
 import 'package:expen/provider/theme_provider.dart';
@@ -10,12 +11,25 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:provider/provider.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 //Entry point of app
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  // Initialize Hive
+  // Initialize Firebase - only do this in main.dart
+  final firebaseService = FirebaseService();
+  bool firebaseInitialized = false;
+  try {
+    await firebaseService.initializeFirebase();
+    firebaseInitialized = true;
+    debugPrint('Firebase initialization completed in main.dart');
+  } catch (e) {
+    debugPrint('Failed to initialize Firebase in main.dart: $e');
+    // Continue with app initialization even if Firebase fails
+  }
+
+  // Initialize Hive (kept for backward compatibility and data migration)
   await Hive.initFlutter();
   Hive.registerAdapter(AmountAdapter());
 
@@ -25,8 +39,13 @@ void main() async {
     await backupAndResetHive();
   }
 
+  // Listen for auth state changes
+  FirebaseAuth.instance.authStateChanges().listen((User? user) {
+    debugPrint('Auth state changed: ${user != null ? 'User logged in' : 'User logged out'}');
+  });
+
   PlatformDispatcher.instance.onPlatformConfigurationChanged = () {};
-  runApp(appProvider(const MyApp()));
+  runApp(appProvider(MyApp(firebaseInitialized: firebaseInitialized)));
 
   SystemChrome.setSystemUIOverlayStyle(
     SystemUiOverlayStyle(
@@ -212,7 +231,12 @@ ThemeData _getDarkTheme() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  final bool firebaseInitialized;
+  
+  const MyApp({
+    super.key, 
+    this.firebaseInitialized = false,
+  });
 
   @override
   Widget build(BuildContext context) {

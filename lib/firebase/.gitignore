@@ -1,0 +1,19 @@
+# Firebase configuration files
+firebase_options.dart
+credentials/
+service_accounts/
+
+# Any local credentials or secret files
+*.json
+*.key
+*.pem
+
+# Firebase local emulator files
+**/firebase-debug.log
+**/firestore-debug.log
+**/ui-debug.log
+.firebase/
+firebase-debug.log
+firestore-debug.log
+pubsub-debug.log
+ui-debug.log 

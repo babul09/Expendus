@@ -178,6 +178,15 @@ class _SettingsState extends State<Settings> {
             const SizedBox(height: 20),
             const Divider(),
 
+            // Cloud Storage Option
+            ListTile(
+              onTap: () => context.push('/migration'),
+              title: const Text("Migrate to Cloud Storage"),
+              subtitle: const Text("Sync your data across devices"),
+              leading: const Icon(Icons.cloud_upload_outlined),
+              trailing: const Icon(Icons.arrow_forward_ios, size: 16),
+            ),
+
             //This will take user to about page
             ListTile(
               onTap: () => context.push('/about'),
